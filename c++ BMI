@@ -1,0 +1,39 @@
+#include <iostream>
+#include <tuple>
+using namespace std;
+tuple<double, double> getData(){
+ double weight;
+ double height;
+ cout << "Enter the weight: ";
+ cin >> weight;
+ cout << "Enter the height: ";
+ cin >> height;
+ return {weight, height};
+}
+double calcBMI(double weight, double height){
+ double BMI = weight / height * 2;
+ return BMI;
+}
+void displayFitnessResults(double BMI){
+ if(BMI < 18.5){
+ cout<<"Your BMI is "<< BMI << " and you are underweight"<<endl;
+ }
+ else if(BMI >=18.5 && BMI<=24.9){
+ cout<<"Your BMI is "<< BMI << " and you are healthy"<<endl;
+ }
+ else if(BMI >= 25.0 && BMI <= 29.9){
+ cout<<"Your BMI is "<< BMI << " and you are overweight"<<endl;
+ }else{
+ cout<<"Your BMI is "<< BMI << " and you are obese"<<endl;
+ }
+}
+int main(){
+ double weight, height;
+ // fetch user data
+ tie(weight, height) = getData();
+ // calculate BMI
+ double BMI = calcBMI(weight, height);
+ // display results
+ displayFitnessResults(BMI);
+ return 0;
+}
