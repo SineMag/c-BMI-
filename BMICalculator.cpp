@@ -1,6 +1,8 @@
 #include <iostream>
 #include <tuple>
 using namespace std;
+
+
 tuple<double, double> getData(){
  double weight;
  double height;
@@ -10,10 +12,14 @@ tuple<double, double> getData(){
  cin >> height;
  return {weight, height};
 }
+
+
 double calcBMI(double weight, double height){
  double BMI = weight / height * 2;
  return BMI;
 }
+
+
 void displayFitnessResults(double BMI){
  if(BMI < 18.5){
  cout<<"Your BMI is "<< BMI << " and you are underweight"<<endl;
@@ -33,7 +39,7 @@ int main(){
  tie(weight, height) = getData();
  // calculate BMI
  double BMI = calcBMI(weight, height);
- // display results
+ // display results here..
  displayFitnessResults(BMI);
  return 0;
 }
